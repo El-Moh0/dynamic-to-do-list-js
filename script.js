@@ -54,3 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call addTask once DOM is loaded (as instructed)
     addTask();
 });
+
+     // Inside the addTask function:
+
+// Create a new li element and set its text
+const li = document.createElement('li');
+li.textContent = taskText;
+
+// Create the Remove button
+const removeButton = document.createElement('button');
+removeButton.textContent = "Remove";
+removeButton.className = 'remove-btn';
+
+// Assign onclick event to remove this specific task
+removeButton.onclick = function() {
+    taskList.removeChild(li);
+};
+
+// Append the remove button to the li
+li.appendChild(removeButton);
+
+// Append the li to the task list
+taskList.appendChild(li);
+
+// Clear the task input field
+taskInput.value = "";
